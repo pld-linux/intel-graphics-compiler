@@ -1,5 +1,7 @@
 
-%define llvm_version 7.0.1
+# requires the OpenCL patches
+%define llvm_version llvm-7.0.1-3
+
 %define opencl_clang_version 8.0.1
 
 Summary:	The Intel Graphics Compiler for OpenCL
