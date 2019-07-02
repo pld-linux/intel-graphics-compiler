@@ -36,6 +36,7 @@ The Intel Graphics Compiler for OpenCL libraries.
 Summary:	Header files for %{name} library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki %{name}
 Group:		Development/Libraries
+Requires:	llvm-devel >= %{llvm_version}
 Requires:	%{name}-libs = %{version}-%{release}
 
 %description devel
