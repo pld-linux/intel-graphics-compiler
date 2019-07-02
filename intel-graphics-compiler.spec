@@ -82,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libiga64.so.1.*.*
 %ghost %attr(755,root,root) %{_libdir}/libiga64.so.1
 %else
-%attr(755,root,root) %{_libdir}/libiga324.so.1.*.*
+%attr(755,root,root) %{_libdir}/libiga32.so.1.*.*
 %ghost %attr(755,root,root) %{_libdir}/libiga32.so.1
 %endif
 %attr(755,root,root) %{_libdir}/libigc.so.1.*.*
