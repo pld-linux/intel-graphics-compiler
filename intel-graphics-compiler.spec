@@ -70,12 +70,21 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.md
 %attr(755,root,root) %{_bindir}/GenX_IR
+%ifarch %{x8664}
 %attr(755,root,root) %{_bindir}/iga64
+%else
+%attr(755,root,root) %{_bindir}/iga32
+%endif
 
 %files libs
 %defattr(644,root,root,755)
+%ifarch %{x8664}
 %attr(755,root,root) %{_libdir}/libiga64.so.1.*.*
 %ghost %attr(755,root,root) %{_libdir}/libiga64.so.1
+%else
+%attr(755,root,root) %{_libdir}/libiga324.so.1.*.*
+%ghost %attr(755,root,root) %{_libdir}/libiga32.so.1
+%endif
 %attr(755,root,root) %{_libdir}/libigc.so.1.*.*
 %ghost %attr(755,root,root) %{_libdir}/libigc.so.1
 %attr(755,root,root) %{_libdir}/libigdfcl.so.1.*.*
@@ -84,7 +93,11 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/igc
+%ifarch %{x8664}
 %attr(755,root,root) %{_libdir}/libiga64.so
+%else
+%attr(755,root,root) %{_libdir}/libiga32.so
+%endif
 %attr(755,root,root) %{_libdir}/libigc.so
 %attr(755,root,root) %{_libdir}/libigdfcl.so
 %{_pkgconfigdir}/igc-opencl.pc
