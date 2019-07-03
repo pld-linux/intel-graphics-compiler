@@ -13,6 +13,7 @@ Group:		Libraries
 Source0:	https://github.com/intel/intel-graphics-compiler/archive/igc-%{version}/igc-%{version}.tar.gz
 # Source0-md5:	9999fd7b6947b2ed0a11f7b07b1e7acc
 Patch0:		pkgconfig.patch
+Patch1:		cxx_flags.patch
 URL:		https://github.com/intel/intel-graphics-compiler/
 BuildRequires:	llvm-devel >= %{llvm_version}
 BuildRequires:	opencl-clang-devel >= %{opencl_clang_version}
@@ -49,11 +50,14 @@ Pliki nagłówkowe biblioteki %{name}.
 %setup -qn %{name}-igc-%{version}
 
 %patch0 -p1
+%patch1 -p1
 
 %build
 install -d build
 cd build
 %cmake \
+	-DCMAKE_BUILD_TYPE=Release \
+	-DCMAKE_CXX_FLAGS_RELEASE="${CXXFLAGS:-%{rpmcxxflags} -DNDEBUG -DQT_NO_DEBUG}" \
 	-DCCLANG_FROM_SYSTEM=ON \
 	../
 %{__make}
