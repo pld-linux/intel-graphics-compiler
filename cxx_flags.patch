@@ -1,0 +1,41 @@
+diff -dur -x '*~' intel-graphics-compiler-igc-1.0.8.orig/IGC/CMakeLists.txt intel-graphics-compiler-igc-1.0.8/IGC/CMakeLists.txt
+--- intel-graphics-compiler-igc-1.0.8.orig/IGC/CMakeLists.txt	2019-06-08 02:25:42.000000000 +0200
++++ intel-graphics-compiler-igc-1.0.8/IGC/CMakeLists.txt	2019-07-03 08:52:38.547407955 +0200
+@@ -2766,7 +2766,6 @@
+         SET_RAW
+           -pipe
+           -fmessage-length=0
+-          -march=corei7
+           -mstackrealign
+           -fms-extensions
+           -Werror
+@@ -2790,9 +2789,6 @@
+           -msse2
+           -msse3
+           -mssse3
+-          -msse4
+-          -msse4.1
+-          -msse4.2
+           -Wno-unknown-pragmas
+           -fPIC
+       )
+@@ -2838,7 +2834,6 @@
+         -Wno-gnu
+         -finline
+         -fkeep-inline-functions
+-        -msse4.2
+       )
+       if(NOT CMAKE_C_COMPILER_VERSION LESS "4.0")
+     igc_config_flag_apply_settings(
+diff -dur -x '*~' intel-graphics-compiler-igc-1.0.8.orig/visa/iga/BuildSetup.cmake intel-graphics-compiler-igc-1.0.8/visa/iga/BuildSetup.cmake
+--- intel-graphics-compiler-igc-1.0.8.orig/visa/iga/BuildSetup.cmake	2019-06-08 02:25:42.000000000 +0200
++++ intel-graphics-compiler-igc-1.0.8/visa/iga/BuildSetup.cmake	2019-07-03 08:50:44.202349668 +0200
+@@ -43,7 +43,7 @@
+ #endforeach()
+ 
+ if(UNIX_MAKEFILE_GENERATOR)
+-  set(COMMON_C_FLAGS "-fno-strict-aliasing -msse4.1 -std=gnu++0x -Wno-unused-function -fpermissive")
++  set(COMMON_C_FLAGS "-fno-strict-aliasing -std=gnu++0x -Wno-unused-function -fpermissive")
+   if(LINUX)
+     set(COMMON_C_FLAGS "${COMMON_C_FLAGS} -DLINUX -fPIC")
+   endif()
