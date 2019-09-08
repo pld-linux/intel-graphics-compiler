@@ -1,13 +1,13 @@
 
 # requires the OpenCL patches
-%define llvm_version 7.0.1-3
+%define llvm_version 8.0.1
 
 %define opencl_clang_version 8.0.1
 
 Summary:	The Intel Graphics Compiler for OpenCL
 Name:		intel-graphics-compiler
 Version:	1.0.8
-Release:	2
+Release:	3
 License:	MIT
 Group:		Libraries
 Source0:	https://github.com/intel/intel-graphics-compiler/archive/igc-%{version}/igc-%{version}.tar.gz
@@ -59,6 +59,7 @@ cd build
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_CXX_FLAGS_RELEASE="${CXXFLAGS:-%{rpmcxxflags} -DNDEBUG -DQT_NO_DEBUG}" \
 	-DCCLANG_FROM_SYSTEM=ON \
+	-DIGC_PREFERRED_LLVM_VERSION=%{llvm_version} \
 	../
 %{__make}
 
