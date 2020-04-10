@@ -1,17 +1,17 @@
 
 # requires the OpenCL patches
-%define llvm_version 9.0.0
+%define llvm_version 10.0.0
 
-%define opencl_clang_version 9.0.0
+%define opencl_clang_version 10.0.0
 
 Summary:	The Intel Graphics Compiler for OpenCL
 Name:		intel-graphics-compiler
-Version:	1.0.2990
+Version:	1.0.3698
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	https://github.com/intel/intel-graphics-compiler/archive/igc-%{version}/igc-%{version}.tar.gz
-# Source0-md5:	094962e98106aa5781ab0965915c42b9
+# Source0-md5:	f43e51a3692bcdeae9c9715ac2802620
 Patch0:		pkgconfig.patch
 Patch1:		cxx_flags.patch
 URL:		https://github.com/intel/intel-graphics-compiler/
@@ -23,8 +23,8 @@ Requires:	%{name}-libs = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The Intel Graphics Compiler for OpenCL is an LLVM based compiler for OpenCL
-targeting Intel Gen graphics hardware architecture.
+The Intel Graphics Compiler for OpenCL is an LLVM based compiler for
+OpenCL targeting Intel Gen graphics hardware architecture.
 
 %package libs
 Summary:	The Intel Graphics Compiler for OpenCL libraries
