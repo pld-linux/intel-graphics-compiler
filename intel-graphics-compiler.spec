@@ -1,17 +1,17 @@
 
 # requires the OpenCL patches
-%define llvm_version 10.0.0
+%define llvm_version 11.0.0
 
-%define opencl_clang_version 10.0.0
+%define opencl_clang_version 11.0.0
 
 Summary:	The Intel Graphics Compiler for OpenCL
 Name:		intel-graphics-compiler
-Version:	1.0.3698
+Version:	1.0.5353
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	https://github.com/intel/intel-graphics-compiler/archive/igc-%{version}/igc-%{version}.tar.gz
-# Source0-md5:	f43e51a3692bcdeae9c9715ac2802620
+# Source0-md5:	bf101f596f63d1c9d6cddca10b9623ef
 Patch0:		pkgconfig.patch
 Patch1:		cxx_flags.patch
 URL:		https://github.com/intel/intel-graphics-compiler/
@@ -52,6 +52,8 @@ Pliki nagłówkowe biblioteki %{name}.
 %patch0 -p1
 %patch1 -p1
 
+%{__sed} -i -e 's/-Werror/-Werror -Wno-error=deprecated-declarations/' IGC/CMakeLists.txt
+
 %build
 install -d build
 cd build
@@ -60,6 +62,7 @@ cd build
 	-DCMAKE_CXX_FLAGS_RELEASE="${CXXFLAGS:-%{rpmcxxflags} -DNDEBUG -DQT_NO_DEBUG}" \
 	-DCCLANG_FROM_SYSTEM=ON \
 	-DIGC_PREFERRED_LLVM_VERSION=%{llvm_version} \
+	-DIGC_BUILD__VC_ENABLED=OFF \
 	../
 %{__make}
 

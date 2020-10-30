@@ -19,14 +19,14 @@ diff -dur -x '*~' intel-graphics-compiler-igc-1.0.8.orig/IGC/CMakeLists.txt inte
            -Wno-unknown-pragmas
            -fPIC
        )
-@@ -2838,7 +2834,6 @@
+@@ -2853,7 +2845,6 @@
          -Wno-gnu
          -finline
          -fkeep-inline-functions
 -        -msse4.2
-       )
-       if(NOT CMAKE_C_COMPILER_VERSION LESS "4.0")
-     igc_config_flag_apply_settings(
+     )
+     if(NOT CMAKE_C_COMPILER_VERSION LESS "4.0")
+       igc_config_flag_apply_settings(
 diff -dur -x '*~' intel-graphics-compiler-igc-1.0.8.orig/visa/iga/BuildSetup.cmake intel-graphics-compiler-igc-1.0.8/visa/iga/BuildSetup.cmake
 --- intel-graphics-compiler-igc-1.0.8.orig/visa/iga/BuildSetup.cmake	2019-06-08 02:25:42.000000000 +0200
 +++ intel-graphics-compiler-igc-1.0.8/visa/iga/BuildSetup.cmake	2019-07-03 08:50:44.202349668 +0200
