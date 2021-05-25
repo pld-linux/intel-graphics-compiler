@@ -1,7 +1,8 @@
 diff -dur intel-graphics-compiler-igc-1.0.8.orig/IGC/AdaptorOCL/igc-opencl.pc.in intel-graphics-compiler-igc-1.0.8/IGC/AdaptorOCL/igc-opencl.pc.in
 --- intel-graphics-compiler-igc-1.0.8.orig/IGC/AdaptorOCL/igc-opencl.pc.in	2019-06-08 02:25:42.000000000 +0200
 +++ intel-graphics-compiler-igc-1.0.8/IGC/AdaptorOCL/igc-opencl.pc.in	2019-07-01 13:33:16.449380174 +0200
-@@ -1,7 +1,7 @@
+@@ -1,8 +1,8 @@
+ 
  prefix=@IGC_INSTALL_TIME_ROOT_DIR@
  exec_prefix=${prefix}
 -includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@/igc

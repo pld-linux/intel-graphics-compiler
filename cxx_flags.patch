@@ -33,7 +33,7 @@ diff -dur -x '*~' intel-graphics-compiler-igc-1.0.8.orig/visa/iga/BuildSetup.cma
 @@ -43,7 +43,7 @@
  #endforeach()
  
- if(UNIX_MAKEFILE_GENERATOR)
+ if(UNIX_MAKEFILE_GENERATOR AND NOT MSVC)
 -  set(COMMON_C_FLAGS "-fno-strict-aliasing -msse4.1 -std=gnu++0x -Wno-unused-function -fpermissive")
 +  set(COMMON_C_FLAGS "-fno-strict-aliasing -std=gnu++0x -Wno-unused-function -fpermissive")
    if(LINUX)

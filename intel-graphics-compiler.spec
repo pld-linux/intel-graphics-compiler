@@ -6,12 +6,12 @@
 
 Summary:	The Intel Graphics Compiler for OpenCL
 Name:		intel-graphics-compiler
-Version:	1.0.5353
-Release:	3
+Version:	1.0.7423
+Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	https://github.com/intel/intel-graphics-compiler/archive/igc-%{version}/igc-%{version}.tar.gz
-# Source0-md5:	bf101f596f63d1c9d6cddca10b9623ef
+# Source0-md5:	a24f432bd43fe1f5ff04a2fa47961ad1
 Patch0:		pkgconfig.patch
 Patch1:		cxx_flags.patch
 URL:		https://github.com/intel/intel-graphics-compiler/
@@ -62,7 +62,7 @@ cd build
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_CXX_FLAGS_RELEASE="${CXXFLAGS:-%{rpmcxxflags} -DNDEBUG -DQT_NO_DEBUG}" \
 	-DCCLANG_FROM_SYSTEM=ON \
-	-DIGC_PREFERRED_LLVM_VERSION=%{llvm_version} \
+	-DIGC_OPTION__LLVM_PREFERRED_VERSION=%{llvm_version} \
 	-DIGC_BUILD__VC_ENABLED=OFF \
 	../
 %{__make}
