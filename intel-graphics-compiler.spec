@@ -1,8 +1,8 @@
 
 # requires the OpenCL patches
-%define llvm_version 11.0.0
+%define llvm_version 12.0.0
 
-%define opencl_clang_version 11.0.0
+%define opencl_clang_version 12.0.0
 
 Summary:	The Intel Graphics Compiler for OpenCL
 Name:		intel-graphics-compiler
