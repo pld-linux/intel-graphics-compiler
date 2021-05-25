@@ -19,6 +19,7 @@ BuildRequires:	llvm-devel >= %{llvm_version}
 BuildRequires:	opencl-clang-devel >= %{opencl_clang_version}
 BuildRequires:	cmake >= 3.2.0
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.605
 Requires:	%{name}-libs = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
