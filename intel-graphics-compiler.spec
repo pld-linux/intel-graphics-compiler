@@ -7,7 +7,7 @@
 Summary:	The Intel Graphics Compiler for OpenCL
 Name:		intel-graphics-compiler
 Version:	1.0.5353
-Release:	2
+Release:	3
 License:	MIT
 Group:		Libraries
 Source0:	https://github.com/intel/intel-graphics-compiler/archive/igc-%{version}/igc-%{version}.tar.gz
