@@ -8,11 +8,6 @@ diff -dur intel-graphics-compiler-igc-1.0.8.orig/IGC/AdaptorOCL/igc-opencl.pc.in
 -libdir=${exec_prefix}/@CMAKE_INSTALL_LIBDIR@
 +includedir=@CMAKE_INSTALL_INCLUDEDIR@/igc
 +libdir=@CMAKE_INSTALL_LIBDIR@
-
- Name:		igc-opencl
-
-%description
- Intel(R) Graphics Compiler for OpenCL(TM)
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+ 
+ Name: igc-opencl
+ Description: Intel(R) Graphics Compiler for OpenCL(TM)

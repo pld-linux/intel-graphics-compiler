@@ -18,7 +18,7 @@ diff -dur -x '*~' intel-graphics-compiler-igc-1.0.8.orig/IGC/CMakeLists.txt inte
 -          -msse4.2
            -Wno-unknown-pragmas
            -fPIC
-       )
+     )
 @@ -2853,7 +2845,6 @@
          -Wno-gnu
          -finline
