@@ -14,6 +14,8 @@ Source0:	https://github.com/intel/intel-graphics-compiler/archive/igc-%{version}
 # Source0-md5:	a24f432bd43fe1f5ff04a2fa47961ad1
 Patch0:		pkgconfig.patch
 Patch1:		cxx_flags.patch
+Patch2:		missing-header.patch
+Patch3:		llvm12.patch
 URL:		https://github.com/intel/intel-graphics-compiler/
 BuildRequires:	llvm-devel >= %{llvm_version}
 BuildRequires:	opencl-clang-devel >= %{opencl_clang_version}
@@ -52,6 +54,8 @@ Pliki nagłówkowe biblioteki %{name}.
 
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %{__sed} -i -e 's/-Werror/-Werror -Wno-error=deprecated-declarations/' IGC/CMakeLists.txt
 
