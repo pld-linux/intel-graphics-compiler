@@ -1,22 +1,24 @@
 
 # requires the OpenCL patches
-%define llvm_version 12.0.0
+%define llvm_version 13.0.0
 
-%define opencl_clang_version 12.0.0
+%define opencl_clang_version 13.0.0
 
 Summary:	The Intel Graphics Compiler for OpenCL
 Name:		intel-graphics-compiler
-Version:	1.0.7423
+Version:	1.0.8744
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	https://github.com/intel/intel-graphics-compiler/archive/igc-%{version}/igc-%{version}.tar.gz
-# Source0-md5:	a24f432bd43fe1f5ff04a2fa47961ad1
+# Source0-md5:	924a22c69af76c9679a6fa799d555bd2
+Source1:	https://github.com/llvm/llvm-project/raw/llvmorg-%{llvm_version}/libunwind/include/mach-o/compact_unwind_encoding.h
+# Source1-md5:	de130d4e72f9e1c750ce09deee4aad4e
 Patch0:		pkgconfig.patch
 Patch1:		cxx_flags.patch
 Patch2:		missing-header.patch
-Patch3:		llvm12.patch
 URL:		https://github.com/intel/intel-graphics-compiler/
+BuildRequires:	lld-devel >= %{llvm_version}
 BuildRequires:	llvm-devel >= %{llvm_version}
 BuildRequires:	opencl-clang-devel >= %{opencl_clang_version}
 BuildRequires:	cmake >= 3.2.0
@@ -55,9 +57,10 @@ Pliki nagłówkowe biblioteki %{name}.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
-%{__sed} -i -e 's/-Werror/-Werror -Wno-error=deprecated-declarations/' IGC/CMakeLists.txt
+install -D %{SOURCE1} build/IGC/llvm-deps/src/libunwind/include/mach-o/compact_unwind_encoding.h
+
+%{__sed} -i -e 's/-Werror/-Werror -Wno-error=deprecated-declarations -Wno-error=nonnull/' IGC/CMakeLists.txt
 
 %build
 install -d build
