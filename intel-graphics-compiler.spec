@@ -54,9 +54,9 @@ Pliki nagłówkowe biblioteki %{name}.
 %prep
 %setup -qn %{name}-igc-%{version}
 
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 install -D %{SOURCE1} build/IGC/llvm-deps/src/libunwind/include/mach-o/compact_unwind_encoding.h
 
